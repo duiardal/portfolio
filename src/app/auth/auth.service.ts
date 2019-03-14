@@ -16,6 +16,8 @@ export class AuthService {
 			if (user) {
 				this.user = user;
 				localStorage.setItem('user', JSON.stringify(this.user));
+				// console.log("Logged in as " + this.user.email);
+				// console.log(localStorage);
 			}
 			else {
 				localStorage.setItem('user', null);
@@ -37,8 +39,10 @@ export class AuthService {
 		localStorage.removeItem('user');
 		this.router.navigate(['admin/login']);
 	}
+
 	get isLoggedIn(): boolean {
 		const  user  =  JSON.parse(localStorage.getItem('user'));
+		console.log(user);
 		return  user  !==  null;
 	}
 }

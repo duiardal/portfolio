@@ -1,0 +1,31 @@
+
+#mainMenuItem {
+	div {
+		margin-bottom: 2em;
+		@media (max-width: 768px) {
+			margin-bottom: 0px;
+		}
+	}
+}
+#description {
+	font-family: essonnes-headline, serif;
+	font-weight: 400;
+	text-transform: uppercase;
+	@media (max-width: 768px) {
+		text-align: center;
+	}
+}
+
+#mainMenuItem {
+	padding-left: 0px;
+	a {
+		font-family: futura, sans-serif;
+		color: black;
+	}
+	a:hover {
+		color: lightgrey;
+	}
+	@media (max-width: 768px) {
+		text-align: center;
+	}
+}

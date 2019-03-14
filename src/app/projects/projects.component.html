@@ -1,0 +1,28 @@
+<div class="container-fluid" *ngIf="projects">
+	<h2>Projects</h2>
+	<hr>
+	<div class="row" id="gridView" >
+		<div class="col-6 col-md-6 col-lg-4 col-xl-4" *ngFor="let project of projects">
+			<a routerLink="/project/{{project.id}}" routerLinkActive="active" (click)="onSelect(project)">
+				<img class="img-thumbnail" [src]="project.image" alt="{{project.name}}" title="{{project.name}}">
+				<div>
+					<h6>{{project.description}}</h6>
+				</div>
+			</a>
+		</div>
+	</div>
+</div>
+<div class="container-fluid" *ngIf="talks">
+	<h2>Talks</h2>
+	<hr>
+	<div class="row" id="gridView" >
+		<div class="col-6 col-md-6 col-lg-4 col-xl-4" *ngFor="let talk of talks">
+			<a routerLink="/project/{{talk.id}}" routerLinkActive="active" (click)="onSelect(talk)">
+				<img class="img-thumbnail" [src]="talk.image" alt="{{talk.name}}" title="{{talk.name}}">
+				<div>
+					<h6>{{talk.name}}</h6>
+				</div>
+			</a>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,82 @@
+<div class="container-fluid" *ngIf="project">
+	<div class="row">
+		<div class="col-12">
+			<h1>{{project.name}}</h1>
+			<p id="description">{{project.description}}</p>
+		</div>
+	</div>
+	<div class="row" *ngIf="project.imageStart1 || project.imageStart2 || project.imageStart3; else onlyMainPic">
+		<div class="col-4">
+			<img class="img-fluid" [src]="project.imageStart1">
+		</div>
+		<div class="col-4">
+			<img class="img-fluid" [src]="project.imageStart2">
+		</div>
+		<div class="col-4">
+			<img class="img-fluid" [src]="project.imageStart3">
+		</div>
+	</div>
+	<hr>
+	<ng-template #onlyMainPic>
+		<div class="col-12">
+			<img class="img-fluid" [src]="project.image">
+		</div>
+	</ng-template>
+	<div class="row" *ngIf="project.paragraph1 || project.paragraph2; else noParagraphs">
+		<div class="col-6">
+			<p>{{project.paragraph1}}</p>
+		</div>
+		<div class="col-6">
+			<p>{{project.paragraph2}}</p>
+		</div>
+	</div>
+	<ng-template #noParagraphs>
+	</ng-template>
+	<div class="row" *ngIf="project.image2 && project.image3; else oneArticlePic">
+		<div class="col-6">
+			<img class="img-fluid" [src]="project.image2">
+		</div>
+		<div class="col-6">
+			<img class="img-fluid" [src]="project.image3">
+		</div>
+	</div>
+	<ng-template #oneArticlePic>
+		<div class="col-6">
+			<img class="img-fluid" [src]="project.image2">
+		</div>
+	</ng-template>
+	<br>
+	<div class="row" *ngIf="project.image4 && project.image5 && project.image6; else noExtraPics">
+		<div class="col-4">
+			<img class="img-fluid" [src]="project.image4">
+		</div>
+		<div class="col-4">
+			<img class="img-fluid" [src]="project.image5">
+		</div>
+		<div class="col-4">
+			<img class="img-fluid" [src]="project.image6">
+		</div>
+	</div>
+	<ng-template #noExtraPics>
+	</ng-template>
+	<hr>
+	<div class="row" *ngIf="project.tags; else noTags">
+		<div class="col-12">
+			<p>Tags: {{project.tags}}</p>
+		</div>
+	</div>
+	<ng-template #noTags>
+	</ng-template>
+</div>
+<div class="container-fluid" *ngIf="talk">
+	<div class="row">
+		<div class="col-12">
+			<h1>{{talk.name}}</h1>
+			<h3>{{talk.title}}</h3>
+			<img class="img-fluid" [src]="talk.image" alt="{{talk.name}}" title="{{talk.name}}">
+			<div id="imageTitle">
+				<p id="description">{{talk.description}}</p>
+			</div>
+		</div>
+	</div>
+</div>

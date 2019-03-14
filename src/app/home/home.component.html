@@ -1,0 +1,17 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-12">
+			<ngb-carousel *ngIf="projects" id="myCarousel">
+				<ng-template ngbSlide *ngFor="let project of projects" >
+					<a routerLink="/project/{{project.id}}" routerLinkActive="active" (click)="onSelect(project)">
+						<img [src]="project.image" alt="{{project.name}}" id="carouselImage" title="{{project.name}}" (click)="onSelect(project)">
+					</a>
+				</ng-template>
+			</ngb-carousel>
+		</div>
+
+		<!-- <div class="col-1 col-md-1 col-lg-1 col-xl-1">
+			<span class="fas fa-th-large" id="gridOrCarousel" style="cursor: pointer"></span>
+		</div> -->
+	</div>
+</div>

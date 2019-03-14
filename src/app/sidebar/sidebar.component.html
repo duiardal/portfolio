@@ -1,0 +1,25 @@
+
+<div class="row" id="mainMenuItem">
+	<div class="col-4" *ngFor="let item of items$ | async" >
+		<h6>
+			<a routerLink="/{{item.name}}" routerLinkActive="active">{{ item.name }}</a>
+		</h6>
+	</div>
+</div>
+	
+	<!-- <p (click)="isCollapsed = !isCollapsed"
+		[attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample" style="cursor: pointer">
+		Years <i *ngIf="isCollapsed; else elseBlock" class="fas fa-caret-down"></i>
+	</p>
+	<ng-template #elseBlock> <i class="fas fa-caret-up"></i>
+	</ng-template>
+	<ul>
+		<div id="collapseExample" [ngbCollapse]="isCollapsed">
+			<li *ngFor="let i of years$ | async" id="mainMenuItem">
+				<p>
+					<a routerLink="/{{i.name}}" routerLinkActive="active">{{ i.name }}</a>
+				</p>
+			</li>
+		</div>
+	</ul> -->
+

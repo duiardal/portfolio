@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
 	projects: Project[];
 
   constructor(private projectService: ProjectsService, config: NgbCarouselConfig) {
-    config.interval = 8000;
+    config.interval = 4000;
     config.wrap = true;
     config.keyboard = false;
     config.pauseOnHover = false;

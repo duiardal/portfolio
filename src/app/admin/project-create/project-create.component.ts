@@ -6,7 +6,6 @@ import { finalize } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { ProjectsService } from '../../projects.service';
 import { Project } from '../../project';
-import { UploadService } from '../uploads/upload.service';
 
 @Component({
   selector: 'app-project-create',
@@ -20,7 +19,7 @@ export class ProjectCreateComponent implements OnInit {
 	fileObj: Observable<string>;
 	resultURL: string;
 
-	constructor(private storage: AngularFireStorage, private fb: FormBuilder, private cd: ChangeDetectorRef, private projectService: ProjectsService, private uploadService: UploadService) { }
+	constructor(private storage: AngularFireStorage, private fb: FormBuilder, private cd: ChangeDetectorRef, private projectService: ProjectsService) { }
 
 	ngOnInit() {
 		this.ResetForm();
@@ -28,10 +27,16 @@ export class ProjectCreateComponent implements OnInit {
 
 	newProjectForm = this.fb.group({
 		name: [''],
+		mainImage: [''],
 		image: [''],
+		image2: [''],
+		image3: [''],
+		image4: [''],
 		description: [''],
+		description2: [''],
 		year: [''],
-		shortDesc: ['']
+		shortDescription: [''],
+		tags: ['']
 	})
 
 	onSubmit() {
@@ -48,7 +53,7 @@ export class ProjectCreateComponent implements OnInit {
 
 			reader.onload = () => {
 				this.newProjectForm.patchValue({
-					image: reader.result
+					mainImage: reader.result
 				});
 				this.fileObj = file;
 
@@ -68,8 +73,10 @@ export class ProjectCreateComponent implements OnInit {
 
 	uploadImg() {
 		const file: any = this.fileObj;
-		const filePath: string = `images/${file}`
-		const task = this.storage.upload(filePath, file);
+		const filePath: string = `images/${file.name}`;
+		const task = this.storage.upload(filePath, file, {
+			cacheControl: 'public,max-age=7200'
+		});
 		const ref = this.storage.ref(filePath);
 		this.uploadPercent = task.percentageChanges();
 		task.snapshotChanges().pipe(
@@ -79,6 +86,7 @@ export class ProjectCreateComponent implements OnInit {
 	        	this.resultURL = dataURL;
 	        	console.log(this.resultURL);
 	        	this.newProjectForm.patchValue({
+					mainImage: this.resultURL,
 					image: this.resultURL
 				});
 				this.create(this.newProjectForm.value);

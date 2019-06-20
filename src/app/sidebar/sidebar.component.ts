@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent implements OnInit {
+	
 	items$: Observable<any[]>;
 	years$: Observable<any[]>;
 	public isCollapsed = true;
@@ -15,7 +16,7 @@ export class SidebarComponent implements OnInit {
     	this.items$ = db.list('menu-items').valueChanges();
     	this.years$ = db.list('menu-items/menu-4').valueChanges();
 	}
+
 	ngOnInit() {
 	}
-
 }

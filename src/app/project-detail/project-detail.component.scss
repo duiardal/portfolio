@@ -1,15 +1,48 @@
-h1 {
-	font-family: essonnes-headline, serif;
-	font-weight: 400;
-	font-style: italic;
-	text-transform: uppercase;
-}
-
-a, p {
-	font-family: serenity, sans-serif;
-	color: black;
-}
-
-a:hover {
-	color: lightgrey;
+#projectDetails {
+	margin-top: 7em;
+	@media (max-width: 768px) {
+		margin-top: 0em;
+	}
+	.img-fluid {
+		width:100%;
+	}
+	h6 {
+		margin-top: 1em;
+		font-family: futura-pt, serif;
+		font-style: normal;
+		text-align: left;
+		@media (max-width: 768px) {
+			text-align: center;
+		}
+		a {
+			color: black;
+		}
+		a:hover {
+			color: lightgrey;
+			text-decoration: none;
+		}
+	}
+	h2 {
+		font-family: mr-eaves-modern, sans-serif;
+		font-style: normal;
+		font-weight: 400;
+	}
+	h3 {
+		font-family: mr-eaves-modern, sans-serif;
+		font-style: normal;
+		font-weight: 100;
+	}
+	p {
+		font-family: mr-eaves-modern, sans-serif;
+		font-style: normal;
+		font-weight: 400;
+	}
+	#shortDescription, #details {
+		margin: 0;
+		padding: 0;
+	}
+	#articleImage {
+		margin-top: 1em;
+		margin-bottom: 1em;
+	}
 }

@@ -16,7 +16,7 @@ import { environment } from '../environments/environment';
 
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
+import { HeaderComponent } from './header/header.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { CvComponent } from './cv/cv.component';
 import { ContactComponent } from './contact/contact.component';
@@ -24,17 +24,21 @@ import { AdminModule } from  './admin/admin.module';
 
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { ProjectDetailComponent } from './project-detail/project-detail.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    SidebarComponent,
+    HeaderComponent,
     ProjectsComponent,
     CvComponent,
     ContactComponent,
-    ProjectDetailComponent
+    ProjectDetailComponent,
+    SidebarComponent,
+    FooterComponent
   ],
   imports: [
  	NgbModule,

@@ -1,82 +1,98 @@
-<div class="container-fluid" *ngIf="project">
+<div class="container-fluid" id="projectDetails" *ngIf="project?.image; else nothingExtra">
+	<!-- Huvudbild -->
+	<!-- Titel och kort beskrivning -->
+	<div class="row" id="titleAndDesc">
+		<div class="col-12">
+			<h2>{{project?.name}}</h2>
+			<p id="details">{{project?.details}}</p>
+			<h3 id="shortDescription">{{project?.shortDescription}}</h3>
+		</div>
+	</div>
+
+	<div class="row" id="mainImage">
+		<div class="col-12" *ngIf="project?.image">
+			<img class="img-fluid" [src]="project?.image">
+		</div>
+	</div>
+
+	<!-- Två bilder bredvid varandra -->
+	<div class="row" id="articleImage">
+		<div class="col-6" *ngIf="project?.image2">
+			<img class="img-fluid" [src]="project?.image2">
+		</div>
+		<div class="col-6" *ngIf="project?.image3">
+			<img class="img-fluid" [src]="project?.image3">
+		</div>
+	</div>
+
+	<!-- Beskrivning av projektet -->
+	<div class="row" id="description">
+		<div class="col-12">
+			<p>{{project?.description}}</p>
+		</div>
+	</div>
+
+	<!-- Beskrivning av projektet -->
+	<div class="row" id="description" *ngIf="project?.description2">
+		<div class="col-12">
+			<p>{{project?.description2}}</p>
+		</div>
+	</div>
+
+	<!-- En liggande bild -->
+	<div class="row" *ngIf="project?.image4">
+		<div class="col-12">
+			<img class="img-fluid" [src]="project?.image4">
+		</div>
+	</div>
+
 	<div class="row">
 		<div class="col-12">
-			<h1>{{project.name}}</h1>
-			<p id="description">{{project.description}}</p>
+			<p>Year: {{project?.year}}</p>
 		</div>
 	</div>
-	<div class="row" *ngIf="project.imageStart1 || project.imageStart2 || project.imageStart3; else onlyMainPic">
-		<div class="col-4">
-			<img class="img-fluid" [src]="project.imageStart1">
-		</div>
-		<div class="col-4">
-			<img class="img-fluid" [src]="project.imageStart2">
-		</div>
-		<div class="col-4">
-			<img class="img-fluid" [src]="project.imageStart3">
-		</div>
-	</div>
-	<hr>
-	<ng-template #onlyMainPic>
+	<div class="row" *ngIf="project?.tags">
 		<div class="col-12">
-			<img class="img-fluid" [src]="project.image">
-		</div>
-	</ng-template>
-	<div class="row" *ngIf="project.paragraph1 || project.paragraph2; else noParagraphs">
-		<div class="col-6">
-			<p>{{project.paragraph1}}</p>
-		</div>
-		<div class="col-6">
-			<p>{{project.paragraph2}}</p>
+			<p>Tags: {{project?.tags}}</p>
 		</div>
 	</div>
-	<ng-template #noParagraphs>
-	</ng-template>
-	<div class="row" *ngIf="project.image2 && project.image3; else oneArticlePic">
-		<div class="col-6">
-			<img class="img-fluid" [src]="project.image2">
-		</div>
-		<div class="col-6">
-			<img class="img-fluid" [src]="project.image3">
-		</div>
-	</div>
-	<ng-template #oneArticlePic>
-		<div class="col-6">
-			<img class="img-fluid" [src]="project.image2">
-		</div>
-	</ng-template>
-	<br>
-	<div class="row" *ngIf="project.image4 && project.image5 && project.image6; else noExtraPics">
-		<div class="col-4">
-			<img class="img-fluid" [src]="project.image4">
-		</div>
-		<div class="col-4">
-			<img class="img-fluid" [src]="project.image5">
-		</div>
-		<div class="col-4">
-			<img class="img-fluid" [src]="project.image6">
-		</div>
-	</div>
-	<ng-template #noExtraPics>
-	</ng-template>
-	<hr>
-	<div class="row" *ngIf="project.tags; else noTags">
-		<div class="col-12">
-			<p>Tags: {{project.tags}}</p>
-		</div>
-	</div>
-	<ng-template #noTags>
-	</ng-template>
+
 </div>
-<div class="container-fluid" *ngIf="talk">
-	<div class="row">
-		<div class="col-12">
-			<h1>{{talk.name}}</h1>
-			<h3>{{talk.title}}</h3>
-			<img class="img-fluid" [src]="talk.image" alt="{{talk.name}}" title="{{talk.name}}">
-			<div id="imageTitle">
-				<p id="description">{{talk.description}}</p>
+
+<ng-template #nothingExtra>
+	<div class="container-fluid" id="projectDetails">
+		<!-- Beskrivning av projektet -->
+		<div class="row" id="titleAndDesc">
+			<div class="col-12">
+				<h2>{{project?.name}}</h2>
+				<p id="details">{{project?.details}}</p>
+				<h3 id="shortDescription">{{project?.shortDescription}}</h3>
+			</div>
+		</div>
+		<div class="row" id="description">
+			<div class="col-12">
+				<p>{{project?.description}}</p>
+			</div>
+		</div>
+
+		<!-- Beskrivning av projektet -->
+		<div class="row" id="description" *ngIf="project?.description2">
+			<div class="col-12">
+				<p>{{project?.description2}}</p>
+			</div>
+		</div>
+
+		<!-- En liggande bild -->
+		<div class="row" *ngIf="project?.image4">
+			<div class="col-12">
+				<img class="img-fluid" [src]="project?.image4">
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-12">
+				<p>Year: {{project?.year}}</p>
 			</div>
 		</div>
 	</div>
-</div>
+</ng-template>

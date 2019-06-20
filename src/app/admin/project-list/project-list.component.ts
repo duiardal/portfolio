@@ -13,7 +13,7 @@ export class ProjectListComponent implements OnInit {
 
 	projects: Project[];
 
-	constructor(private modalService: NgbModal, private projectService: ProjectsService, private  authService:  AuthService) { }
+	constructor(private modalService: NgbModal, private projectService: ProjectsService, public authService:  AuthService) { }
 
 	ngOnInit() {
 		this.projectService.getProjects().subscribe(data => {

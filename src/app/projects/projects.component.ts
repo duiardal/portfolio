@@ -3,7 +3,6 @@ import { AngularFireDatabase } from '@angular/fire/database';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 
 import { Project } from '../project';
-import { Talk } from '../talks';
 import { ProjectsService } from '../projects.service';
 
 @Component({
@@ -14,31 +13,48 @@ import { ProjectsService } from '../projects.service';
 export class ProjectsComponent implements OnInit {
 
 	selectedProject: Project;
-	selectedTalks: Talk;
 	projects: Project[];
-	talks: Talk[];
+	
+	frontend = new Array<Project>();
+	interactionDesign = new Array<Project>();
+	gameGraphics = new Array<Project>();
+	talks = new Array<Project>();
 
 	constructor(private projectService: ProjectsService) {
 	}
 
 	ngOnInit() {
 		this.getProjects();
-		this.getTalks();
 	}
 
-	onSelect(project: Project, talk: Talk): void {
+	onSelect(project: Project): void {
 		this.selectedProject = project;
-		this.selectedTalks = talk;
 	}
 
 	getProjects(): void {
 		this.projectService.getProjects()
-			.subscribe(projects => this.projects = projects);
+			.subscribe(projects => {
+				this.projects = projects;
+				this.getProjectType();
+			}
+		);
 	}
 
-	getTalks(): void {
-		this.projectService.getTalks()
-			.subscribe(talks => this.talks = talks);
+	getProjectType(): void {
+		for (var i = this.projects.length - 1; i >= 0; i--) {
+			if (this.projects[i].type == "frontend") {
+				this.frontend.push(this.projects[i]);
+			}
+			else if (this.projects[i].type == "interactionDesign") {
+				this.interactionDesign.push(this.projects[i]);
+			}
+			else if (this.projects[i].type == "gameGraphics") {
+				this.gameGraphics.push(this.projects[i]);
+			}
+			else if (this.projects[i].type == "talks") {
+				this.talks.push(this.projects[i]);
+			}
+		}
 	}
 
 }

@@ -4,7 +4,6 @@ import { Location } from '@angular/common';
 import { Observable } from 'rxjs';
 
 import { Project } from '../project';
-import { Talk } from '../talks';
 import { ProjectsService } from '../projects.service';
 
 @Component({
@@ -15,7 +14,6 @@ import { ProjectsService } from '../projects.service';
 export class ProjectDetailComponent implements OnInit {
 
 	project: Project;
-	talk: Talk;
 	projectTitle: string;
 
 	constructor(
@@ -26,19 +24,12 @@ export class ProjectDetailComponent implements OnInit {
 
 	ngOnInit(): void {
 		this.getProject();
-		this.getTalk();
 	}
 
 	getProject(): void {
 		const id = this.route.snapshot.paramMap.get('id');
 		this.projectService.getProject(id)
 		.subscribe( project => this.project = project);
-	}
-
-	getTalk(): void {
-		const id = this.route.snapshot.paramMap.get('id');
-		this.projectService.getTalk(id)
-		.subscribe( talk => this.talk = talk);
 	}
 
 	goBack(): void {

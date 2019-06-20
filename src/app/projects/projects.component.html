@@ -1,28 +1,64 @@
-<div class="container-fluid" *ngIf="projects">
-	<h2>Projects</h2>
-	<hr>
-	<div class="row" id="gridView" >
-		<div class="col-6 col-md-6 col-lg-4 col-xl-4" *ngFor="let project of projects">
-			<a routerLink="/project/{{project.id}}" routerLinkActive="active" (click)="onSelect(project)">
-				<img class="img-thumbnail" [src]="project.image" alt="{{project.name}}" title="{{project.name}}">
-				<div>
-					<h6>{{project.description}}</h6>
+<div class="container-fluid" *ngIf="frontend">
+	<div class="row" id="gridView">
+		<div class="col-12 col-md-6">
+			<div class="row">
+				<div class="col-12" id="headerProject">
+					<h2>Frontend / Web development</h2>
 				</div>
-			</a>
+			</div>
+			<div class="row">
+				<div class="col-6" *ngFor="let project of frontend" id="imgDiv">
+					<a routerLink="/project/{{project.id}}" routerLinkActive="active" (click)="onSelect(project)">
+						<img class="img-thumbnail" [src]="project.thumbnail" alt="{{project.name}}" title="{{project.name}}">
+						<p id="imgParagaraph">{{project.name}}</p>
+					</a>
+				</div>
+			</div>
 		</div>
-	</div>
-</div>
-<div class="container-fluid" *ngIf="talks">
-	<h2>Talks</h2>
-	<hr>
-	<div class="row" id="gridView" >
-		<div class="col-6 col-md-6 col-lg-4 col-xl-4" *ngFor="let talk of talks">
-			<a routerLink="/project/{{talk.id}}" routerLinkActive="active" (click)="onSelect(talk)">
-				<img class="img-thumbnail" [src]="talk.image" alt="{{talk.name}}" title="{{talk.name}}">
-				<div>
-					<h6>{{talk.name}}</h6>
+		<div class="col-12 col-md-6">
+			<div class="row">
+				<div class="col-12" id="headerProject">
+					<h2>Game development / Computer Graphics</h2>
 				</div>
-			</a>
+			</div>
+			<div class="row">
+				<div class="col-6" *ngFor="let project of gameGraphics" id="imgDiv">
+					<a routerLink="/project/{{project.id}}" routerLinkActive="active" (click)="onSelect(project)">
+						<img class="img-thumbnail" [src]="project.thumbnail" alt="{{project.name}}" title="{{project.name}}">
+						<p id="imgParagaraph">{{project.name}}</p>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-12 col-md-6">
+			<div class="row">
+				<div class="col-12" id="headerProject">
+					<h2>UI/UX</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-6" *ngFor="let project of interactionDesign" id="imgDiv">
+					<a routerLink="/project/{{project.id}}" routerLinkActive="active" (click)="onSelect(project)">
+						<img class="img-thumbnail" [src]="project.thumbnail" alt="{{project.name}}" title="{{project.name}}">
+						<p id="imgParagaraph">{{project.name}}</p>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-12 col-md-6">
+			<div class="row">
+				<div class="col-12" id="headerProject">
+					<h2>Talks</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-6" *ngFor="let talk of talks" id="imgDiv">
+					<a routerLink="/project/{{talk.id}}" routerLinkActive="active" (click)="onSelect(talk)">
+						<img class="img-thumbnail" [src]="talk.thumbnail" alt="{{talk.name}}" title="{{talk.name}}">
+						<p id="imgParagaraph">{{talk.name}}</p>
+					</a>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

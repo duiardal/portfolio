@@ -29,9 +29,10 @@ export class ProjectsService {
 	cv: Observable<CV>;
 
 	constructor(private afs: AngularFirestore) {
-		this.projectsCollection = this.afs.collection<Project>('projects');
+		this.projectsCollection = this.afs.collection<Project>('projects', ref => ref.orderBy('date'));
 		this.talksCollection = this.afs.collection<Talk>('talks');
 		this.cvCollection = this.afs.collection<CV>('cv');
+
 	}
 
 	/* För att HÄMTA projekt */

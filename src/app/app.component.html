@@ -1,39 +1,22 @@
 <div class="container-fluid">
-  <div class="row" id="header">
-    <div class="col-12 col-md-4">
-      <h1 class="headerTitle"><a routerLink="/Projects" routerLinkActive="active">Dúi Ardal</a></h1>
-    </div>
-    <div class="col-12 col-md-8" id="sidebar">
+
+  <div class="row">
+      <div class="col-12">
+        <app-header></app-header>
+      </div>
+  </div>
+
+  <div class="row">
+    
+    <div class="col-12 col-md-2">
       <app-sidebar></app-sidebar>
     </div>
-    
+
+      <div [@routeAnimations]="o && o.activatedRouteData 
+        && o.activatedRouteData['animation']" class="col-12 col-md-8">
+      <router-outlet #o="outlet"></router-outlet>
+      </div>
 
   </div>
-  
- <!--  <div class="row">
-    <div class="col-12" id="sidebar">
-      <app-sidebar></app-sidebar>
-    </div>
-  </div> -->
-  <div class="row" id="content">
-    <div [@routeAnimations]="o && o.activatedRouteData 
-      && o.activatedRouteData['animation']" class="col-12" id="main-content">
-      <router-outlet #o="outlet"></router-outlet>
-    </div>
-    
-  </div>
+
 </div>
-<!-- <footer class="footer">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-6">
-        <h6>Dui Ardal</h6>
-        <p>MSc Student at KTH</p>
-      </div>
-      <div class="col-6" style="text-align: right;">
-        <h6>Email</h6>
-        <p>duiardal@gmail.com</p>
-      </div>
-    </div>
-  </div>
-</footer> -->

@@ -8,7 +8,7 @@ import { AuthService } from  '../../auth/auth.service';
 })
 export class ProjectComponent implements OnInit {
 
-  constructor(private authService: AuthService) { }
+  constructor(public authService: AuthService) { }
 
   logout() {
   	this.authService.logout();

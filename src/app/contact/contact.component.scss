@@ -1,12 +1,26 @@
-h2 {
-	font-family: essonnes-headline, serif;
-	font-style: italic;
-	text-transform: uppercase;
-	text-align: center;
-}
+#contactPage {
+	margin-top: 7em;
+	@media (max-width: 768px) {
+		margin-top: 0em;
+		text-align: center;
+	}
+	h6 {
+		font-family: futura-pt, serif;
+		margin-bottom: 2em;
+	}
 
-p {
-	text-align: center;
-	font-family: century-gothic, sans-serif;
-	color: black;
+	p {
+		margin-top: 0;
+		margin-bottom: 0;
+		font-family: bodoni, sans-serif;
+		font-size: 10pt;
+		a {
+			color: black;
+			text-decoration: underline;
+		}
+
+		a:hover {
+			color: lightgrey;
+		}
+	}
 }

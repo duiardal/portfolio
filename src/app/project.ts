@@ -5,6 +5,7 @@ export class Project {
 	url: string;
 	year: string;
 	image: string;
+	type: string;
 }
 
 export class CV {

@@ -5,13 +5,10 @@
 				<ng-template ngbSlide *ngFor="let project of projects" >
 					<a routerLink="/project/{{project.id}}" routerLinkActive="active" (click)="onSelect(project)">
 						<img [src]="project.image" alt="{{project.name}}" id="carouselImage" title="{{project.name}}" (click)="onSelect(project)">
+						<p id="projectName">{{project.name}}</p>
 					</a>
 				</ng-template>
 			</ngb-carousel>
 		</div>
-
-		<!-- <div class="col-1 col-md-1 col-lg-1 col-xl-1">
-			<span class="fas fa-th-large" id="gridOrCarousel" style="cursor: pointer"></span>
-		</div> -->
 	</div>
 </div>

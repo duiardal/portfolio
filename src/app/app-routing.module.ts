@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
+import { HeaderComponent } from './header/header.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { CvComponent } from './cv/cv.component';
 import { ContactComponent } from './contact/contact.component';
@@ -16,19 +16,19 @@ const routes: Routes = [
       animation: 'HomePage'
     }
   },
-  { path: 'Projects',
+  { path: 'projects',
   	component: ProjectsComponent,
     data: {
       animation: 'ProjectsPage'
     }
   },
-  { path: 'CV',
+  { path: 'cv',
   	component: CvComponent,
     data: {
       animation: 'CvPage'
     }
   },
-  { path: 'Contact',
+  { path: 'contact',
   	component: ContactComponent,
     data: {
       animation: 'ContactPage'
@@ -43,7 +43,7 @@ const routes: Routes = [
   },
   {
   	path: '',
-    redirectTo: '/Projects',
+    redirectTo: '/projects',
     pathMatch: 'full'
   },
   {

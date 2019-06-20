@@ -1,8 +1,21 @@
 #myCarousel {
+	margin-top: 7em;
+	text-align: center;
+	@media (max-width: 768px) {
+		margin-top: 0em;
+	}
 	outline: none !important;
 	width: 100%;
 	#carouselImage {
 		width: 100%;
-		max-width: 100%;
+		max-width: 75%;
+		@media (max-width: 768px) {
+			max-width: 100%;
+		}
+	}
+	#projectName {
+		font-family: futura-pt;
+		color: black;
+		text-decoration: none;
 	}
 }

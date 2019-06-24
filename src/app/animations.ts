@@ -9,21 +9,47 @@ import {
 } from '@angular/animations';
 export const slideInAnimation =
    trigger('routeAnimations', [
-        transition('* => *', [     
+        transition('* => *', [
+             style({ position: 'relative' }),
              group([
                   query(':enter',[
-                      style({  opacity: 0 }),
-                  ], { optional: true }),
+                      style({
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        width: '100%',
+                        opacity: 0
+                      }),
+                      animate('0.3s ease-in-out', 
+                      style({
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        width: '100%',
+                        opacity: 1
+                      }))
+                  ], {
+                    optional: true
+                  }),
                   query(':leave', [
-                      style({ opacity: 1 }),
-                      animate('0.5s ease-in-out', 
-                      style({ opacity: 0 }))
-                  ], { optional: true }),
-                  query(':enter', [
-                      style({ opacity: 0 }),
-                      animate('0.5s ease-in-out', 
-                      style({ opacity: 1 }))
-                  ], { optional: true }),
+                      style({
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        width: '100%',
+                        opacity: 1
+                      }),
+                      animate('0.3s ease-in-out', 
+                      style({
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        width: '100%',
+                        opacity: 0
+                      }))
+                  ], {
+                    optional: true
+                  })
              ])
         ])
 ]);

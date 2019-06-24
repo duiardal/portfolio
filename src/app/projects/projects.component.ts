@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireDatabase } from '@angular/fire/database';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
-
 import { Project } from '../project';
 import { ProjectsService } from '../projects.service';
 
